@@ -1,27 +1,32 @@
-name: Update Cloudflare CIDR
+name: Advanced ASN Classification
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天北京时间早上 8 点自动运行
-  workflow_dispatch: # 允许你手动点击运行
+    - cron: '0 0 * * 1' # 每周一更新一次即可，ASN 信息变动频率不高
+  workflow_dispatch:
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fetch IPv4 CIDR
-        run: curl -s https://www.cloudflare.com/ips-v4 -o CF-CIDR.txt
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-      - name: Fetch IPv6 CIDR (可选)
-        run: curl -s https://www.cloudflare.com/ips-v6 -o CF-CIDR-v6.txt
+      - name: Install dependencies
+        run: pip install requests ipwhois
+
+      - name: Run ASN Classification
+        run: python process_ips.py
 
       - name: Commit and Push
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add CF-CIDR.txt CF-CIDR-v6.txt
-          git commit -m "chore: 自动更新 Cloudflare CIDR" || exit 0
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add CF-*.txt
+          git commit -m "Update ASN-classified CIDRs" || exit 0
           git push
