@@ -1,8 +1,4 @@
-{
-  "name": "node-cloudfare",
-  main = "_worker.js"
-  "compatibility_date": "2026-04-20",
-  "assets": {
-    "directory": "./dist"
-  }
-}
+name = "node-cloudfare"
+main = "worker.js"
+compatibility_date = "2026-04-20"
+keep_vars = true
