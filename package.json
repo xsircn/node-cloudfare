@@ -1,0 +1,9 @@
+{
+  "name": "node-cloudfare",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "bun build ./worker.js --outdir ./dist", 
+    "deploy": "wrangler deploy"
+  }
+}
