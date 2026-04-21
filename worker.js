@@ -776,7 +776,6 @@ async function sendMessage(BotToken, ChatID, 日志内容, config_JSON) {
             `🏢 <b>ASN：</b>${日志内容.ASN}\n` +
             `🔗 <b>域名：</b><code>${请求URL.host}</code>\n` +
             `🔍 <b>路径：</b><code>${请求URL.pathname + 请求URL.search}</code>\n` +
-            `🤖 <b>UA：</b><code>${日志内容.UA}</code>\n` +
             `📅 <b>时间：</b>${请求时间}\n` +
             `${config_JSON.CF.Usage.success ? `📊 <b>请求用量：</b>${config_JSON.CF.Usage.total}/100000 <b>${((config_JSON.CF.Usage.total / 100000) * 100).toFixed(2)}%</b>\n` : ''}`;
 
