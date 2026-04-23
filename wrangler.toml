@@ -2,3 +2,7 @@ name = "node-cloudfare"
 main = "worker.js"
 compatibility_date = "2026-04-20"
 keep_vars = true
+
+# 关键：必须绑定 KV 命名空间
+[[kv_namespaces]]
+binding = "KV"
