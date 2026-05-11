@@ -4711,7 +4711,7 @@ async function 生成随机IP(request, count = 16, 指定端口 = -1, TLS = true
 		ct: '电信优选',
 		cf: '官方优选',
 	};
-	const cidr_url = 运营商文件标识 === 'cf' ? 'https://raw.githubusercontent.com/xsircn/node-cloudfare/refs/heads/main/CF-CIDR.txt' : `https://raw.githubusercontent.com/cmliu/cmliu/main/CF-CIDR/${运营商文件标识}.txt`;
+	const cidr_url = 运营商文件标识 === 'cf' ? 'https://raw.githubusercontent.com/cmliu/cmliu/main/CF-CIDR.txt' : `https://raw.githubusercontent.com/cmliu/cmliu/main/CF-CIDR/${运营商文件标识}.txt`;
 	const cfname = 运营商名称映射[运营商文件标识] || '官方优选';
 	const cfport = TLS ? [443, 2053, 2083, 2087, 2096, 8443] : [80, 8080, 8880, 2052, 2082, 2086, 2095];
 	let cidrList = [];
