@@ -4631,7 +4631,6 @@ async function 请求日志记录(env, request, 访问IP, 请求类型 = "Get_SU
 					const 请求时间 = new Date(日志内容.TIME).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
 					const 请求URL = new URL(日志内容.URL);
 					const msg = `<b>#日志通知</b>\n\n` +
-						`📌 <b>类型：</b>#${日志内容.TYPE}\n` +
 						`🌐 <b>IP：</b><code>${日志内容.IP}</code>\n` +
 						`📍 <b>位置：</b>${日志内容.CC}\n` +
 						`🏢 <b>ASN：</b>${日志内容.ASN}\n` +
