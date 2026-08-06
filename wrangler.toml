@@ -1,4 +1,4 @@
-name = "node-cloudfare"
+name = "helps"
 main = "worker.js"
 compatibility_date = "2026-04-20"
 keep_vars = true
